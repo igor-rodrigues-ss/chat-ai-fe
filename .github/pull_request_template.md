@@ -1,7 +1,3 @@
-## Description
-
-- Description here
-
 ## Type
 
 - [ ] New feature
