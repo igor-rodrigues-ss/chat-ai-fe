@@ -26,6 +26,10 @@ export const ColCenter = styled(Col)`
 	justify-content: center;
 `;
 
+export const ColStart = styled(Col)`
+	justify-content: start;
+`;
+
 export const RowBetween = styled(Row)`
 	justify-content: space-between;
 `;
