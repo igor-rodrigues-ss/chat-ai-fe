@@ -11,6 +11,8 @@ import {
 import SendIcon from "@mui/icons-material/Send";
 import styled from "styled-components";
 import { DEFAULT_FONT_FAMILY } from "../../../styles/config";
+import { GreenText, Title } from "../../../components/text";
+import { COLORS } from "../../../styles/colors";
 
 const AiBaloon = styled.div`
 	background: #e1e6fd;
@@ -29,26 +31,12 @@ const UserBaloon = styled.div`
 const ChatMessages = () => {
 	return (
 		<div style={{ height: "98vh", width: "100%", borderRadius: "12px" }}>
-			<RowBetween style={{ padding: "0 40px" }}>
-				<h1
-					style={{
-						margin: "auto 0 auto 0",
-						fontFamily: DEFAULT_FONT_FAMILY,
-						color: "grey",
-					}}
-				>
-					Chat
-				</h1>
+			<RowBetween
+				style={{ padding: "0 40px", borderBottom: "1px solid #f1f1f1" }}
+			>
+				<Title m={"12px 0"}>LLama 3.1</Title>
 
-				<h3
-					style={{
-						margin: "auto 0 auto 0",
-						fontFamily: DEFAULT_FONT_FAMILY,
-						color: "grey",
-					}}
-				>
-					Messages
-				</h3>
+				<GreenText m={"12px 0"}>Messages</GreenText>
 			</RowBetween>
 
 			<ColBetween
@@ -91,7 +79,7 @@ const ChatMessages = () => {
 
 					<div
 						style={{
-							background: "green",
+							background: COLORS.GREEN.BASE,
 							borderRadius: "8px",
 							margin: "2px 0",
 						}}

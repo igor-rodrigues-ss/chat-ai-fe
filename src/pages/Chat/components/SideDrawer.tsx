@@ -2,43 +2,126 @@ import * as React from "react";
 
 import Drawer from "@mui/material/Drawer";
 
-import { Box, Divider, InputBase } from "@mui/material";
-import { Col, ColCenter, ColStart, Row, RowCenter } from "../../../styles/grid";
+import { Box, Divider } from "@mui/material";
+import {
+	Col,
+	ColBetween,
+	ColStart,
+	Row,
+	RowBetween,
+} from "../../../styles/grid";
 import { DEFAULT_FONT_FAMILY } from "../../../styles/config";
-import SearchIcon from "@mui/icons-material/Search";
+
 import ViewHeadlineIcon from "@mui/icons-material/ViewHeadline";
 import ChatIcon from "@mui/icons-material/Chat";
 import ManageAccountsIcon from "@mui/icons-material/ManageAccounts";
+import { GreenText, Title, TitleSmall } from "../../../components/text";
+import { InputSearch } from "../../../components/inputs";
+import { COLORS } from "../../../styles/colors";
 
+const RecentChatItems = () => (
+	<RowBetween style={{ margin: "0 0 18px 0"}}>
+		<Row>
+			<ViewHeadlineIcon style={{ margin: "auto 0" }} />
+
+			<Col>
+				<span
+					style={{
+						margin: "auto auto 4px 8px",
+						fontWeight: "400",
+						fontFamily: DEFAULT_FONT_FAMILY,
+						width: "220px",
+						whiteSpace: "nowrap",
+						overflow: "hidden",
+						textOverflow: "ellipsis",
+					}}
+				>
+					Talking about technology
+				</span>
+				<span
+					style={{
+						fontSize: "8pt",
+						margin: "auto auto 4px 8px",
+						fontFamily: DEFAULT_FONT_FAMILY,
+						color: COLORS.GREY.SHADE,
+						width: "200px",
+						whiteSpace: "nowrap",
+						overflow: "hidden",
+						textOverflow: "ellipsis",
+					}}
+				>
+					I'll explain for you something very important but ...
+				</span>
+			</Col>
+		</Row>
+
+		<span
+			style={{
+				fontSize: "8pt",
+				fontWeight: "bold",
+				margin: "0 0 auto auto",
+				fontFamily: DEFAULT_FONT_FAMILY,
+				color: COLORS.GREY.SHADE,
+			}}
+		>
+			11:15
+		</span>
+	</RowBetween>
+);
 
 const SideContent = () => {
 	return (
 		<Row style={{ height: "100vh" }}>
-			<ColCenter style={{ padding: "0 12px" }}>
-				<ChatIcon style={{ color: "grey", fontSize: "28pt" }} />
-				<ManageAccountsIcon
-					style={{
-						color: "grey",
-						margin: "12px 0 0 0",
-						fontSize: "32pt",
-					}}
-				/>
-			</ColCenter>
-
-			<Divider orientation="vertical" />
-
-			<ColStart style={{ padding: "8px" }}>
-				<Col>
+			<ColBetween style={{ padding: "0 8px" }}>
+				<Row style={{ margin: "24px auto 0" }}>
 					<span
 						style={{
-							margin: "auto",
+							margin: "auto 4px auto 0",
+							fontSize: "15pt",
+							fontWeight: "bold",
+							color: COLORS.PRIMARY.SHADE,
 							fontFamily: DEFAULT_FONT_FAMILY,
 						}}
 					>
-						Conversas
+						AI
 					</span>
 
-					<Divider />
+					<img
+						src="images/ai-logo.png"
+						width={"16px"}
+						style={{ margin: "0 0 auto -4px", opacity: ".9" }}
+					/>
+				</Row>
+
+				<Col>
+					<ChatIcon
+						style={{
+							color: COLORS.GREEN.BASE,
+							fontSize: "20pt",
+							borderRadius: "8px",
+							padding: "12px",
+							background: COLORS.GREEN.TINT,
+						}}
+					/>
+					<ManageAccountsIcon
+						style={{
+							color: "grey",
+							margin: "12px auto 0",
+							fontSize: "30pt",
+						}}
+					/>
+				</Col>
+
+				<div></div>
+			</ColBetween>
+
+			<Divider orientation="vertical" />
+
+			<ColStart style={{ padding: "8px", width: "100%" }}>
+				<Col>
+					<Title m="12px 0">Models</Title>
+
+					<Divider style={{ borderColor: COLORS.LIGHT.BASE }} />
 				</Col>
 
 				<img
@@ -50,63 +133,22 @@ const SideContent = () => {
 					}}
 				/>
 
-				<h2
-					style={{
-						margin: "10px auto",
-						fontFamily: DEFAULT_FONT_FAMILY,
-					}}
-				>
-					Chat AI
-				</h2>
+				<Title m={"8px auto"}>LLama 3.1</Title>
 
-				<RowCenter>
-					<span
-						style={{
-							background: "#cdf5d2",
-							color: "#5ca06f",
-							padding: "6px 8px",
-							fontSize: "9pt",
-							fontWeight: "bold",
-							fontFamily: DEFAULT_FONT_FAMILY,
-							borderRadius: "8px",
-							margin: "8px",
-						}}
-					>
-						Available
-					</span>
-				</RowCenter>
+				<GreenText m="0 auto 12px auto">Available</GreenText>
 
-				<Row
-					style={{
-						border: "1px solid lightgrey",
-						borderRadius: "6px",
-					}}
-				>
-					<InputBase placeholder="Search old chats" />
-					<SearchIcon style={{ margin: "auto 0 auto auto" }} />
-				</Row>
+				<InputSearch />
 
-				<h4 style={{ fontFamily: DEFAULT_FONT_FAMILY, color: "grey" }}>
-					Last Chats
-				</h4>
+				<TitleSmall>Last Chats</TitleSmall>
 
-				<Row>
-					<ViewHeadlineIcon />
-					<span
-						style={{
-							margin: "auto auto auto 8px",
-							fontFamily: DEFAULT_FONT_FAMILY,
-						}}
-					>
-						Talking about technology
-					</span>
-				</Row>
+				<RecentChatItems />
+				<RecentChatItems />
 			</ColStart>
 		</Row>
 	);
 };
 
-const drawerWidth = 320;
+const drawerWidth = 380;
 
 interface Props {
 	open: boolean;
