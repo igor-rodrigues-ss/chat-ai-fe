@@ -1,13 +1,17 @@
 import styled from "styled-components";
 
-export const Row = styled.div`
+export const Row = styled.div<{m?: string}>`
 	display: flex;
 	flex-direction: row;
+	margin: ${p => p.m || "0"};
 `;
 
-export const Col = styled.div`
+export const Col = styled.div<{m?: string; p?: string, width?: string}>`
 	display: flex;
 	flex-direction: column;
+	margin: ${p => p.m || "0"};
+	padding: ${p => p.p || "0"};
+	width: ${p => p.width || "auto"};
 `;
 
 export const RowEnd = styled(Row)`
