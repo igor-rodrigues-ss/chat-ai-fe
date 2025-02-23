@@ -2,7 +2,7 @@ import * as React from "react";
 import IconButton from "@mui/material/IconButton";
 import { Col, Row } from "../../styles/grid";
 import SideDrawer from "./components/SideDrawer";
-import ChatMessages from "./components/Chat";
+import ChatMessages from "./components/ChatMessages";
 import MenuIcon from "@mui/icons-material/Menu";
 
 const ChatPage = () => {
