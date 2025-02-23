@@ -1,9 +1,10 @@
 import styled from "styled-components";
 
-export const Row = styled.div<{m?: string}>`
+export const Row = styled.div<{m?: string, p?: string}>`
 	display: flex;
 	flex-direction: row;
 	margin: ${p => p.m || "0"};
+	padding: ${p => p.p || "0"};
 `;
 
 export const Col = styled.div<{m?: string; p?: string, width?: string}>`
