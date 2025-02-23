@@ -10,7 +10,6 @@ interface Props {
 	setOpen: (value: boolean) => void;
 }
 
-
 const SideDrawer = (props: Props) => {
 	const { open, setOpen } = props;
 
@@ -36,17 +35,12 @@ const SideDrawer = (props: Props) => {
 				<SideContent />
 			</Drawer>
 
-			<Drawer
-				variant="permanent"
-				sx={PermanentDrawerSX}
-				open
-			>
+			<Drawer variant="permanent" sx={PermanentDrawerSX} open>
 				<SideContent />
 			</Drawer>
 		</Box>
 	);
 };
-
 
 const TemporaryDrawerSX = {
 	display: { xs: "block", sm: "none" },
@@ -54,7 +48,7 @@ const TemporaryDrawerSX = {
 		boxSizing: "border-box",
 		width: DRAWER_WIDTH,
 	},
-}
+};
 
 const PermanentDrawerSX = {
 	display: { xs: "none", sm: "block" },
@@ -62,10 +56,11 @@ const PermanentDrawerSX = {
 		boxSizing: "border-box",
 		width: DRAWER_WIDTH,
 	},
-}
+};
 
 const BoxSX = {
-	width: { sm: DRAWER_WIDTH }, flexShrink: { sm: 0 }
-}
+	width: { sm: DRAWER_WIDTH },
+	flexShrink: { sm: 0 },
+};
 
 export default SideDrawer;

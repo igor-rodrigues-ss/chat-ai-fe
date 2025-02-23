@@ -1,18 +1,18 @@
 import styled from "styled-components";
 
-export const Row = styled.div<{m?: string, p?: string}>`
+export const Row = styled.div<{ m?: string; p?: string }>`
 	display: flex;
 	flex-direction: row;
-	margin: ${p => p.m || "0"};
-	padding: ${p => p.p || "0"};
+	margin: ${(p) => p.m || "0"};
+	padding: ${(p) => p.p || "0"};
 `;
 
-export const Col = styled.div<{m?: string; p?: string, width?: string}>`
+export const Col = styled.div<{ m?: string; p?: string; width?: string }>`
 	display: flex;
 	flex-direction: column;
-	margin: ${p => p.m || "0"};
-	padding: ${p => p.p || "0"};
-	width: ${p => p.width || "auto"};
+	margin: ${(p) => p.m || "0"};
+	padding: ${(p) => p.p || "0"};
+	width: ${(p) => p.width || "auto"};
 `;
 
 export const RowEnd = styled(Row)`
